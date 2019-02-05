@@ -1,0 +1,24 @@
+<li [ngClass]="{
+  'post-element': true,
+  'list-group-item': true,
+  'list-group-item-danger': loveIts < 0,
+  'list-group-item-success': loveIts > 0
+}">
+  <div class="row">
+    <h4 class="col-10">
+      {{ title }}
+      <span *ngIf="loveIts > 0" class="">
+          {{ loveIts }}  <i class="fas fa-long-arrow-alt-up"></i>
+      </span>
+      <span *ngIf="loveIts < 0" class="">
+          {{ loveIts }} <i class="fas fa-long-arrow-alt-down"></i>
+      </span>
+    </h4>
+    <p class="col-2 created-date">{{ created_at | date }}</p>
+  </div>
+  <p>{{ content }}</p>
+  <div class="btn-toolbar" role="toolbar" >
+    <button type="button" class="btn btn-success mr-2" (click)="updateLikes(true)">Loved it!</button>
+    <button type="button" class="btn btn-danger mr-2" (click)="updateLikes(false)">Don't loved it</button> 
+  </div>
+</li>
